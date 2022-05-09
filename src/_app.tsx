@@ -1,10 +1,19 @@
+import IconLinks from "./ui/IconLinks";
+import Navigation from "./ui/Navigation";
+import Footer from "./ui/Footer";
+import Main from "./ui/Main";
+import SiteWrapper from "./ui/SiteWrapper";
+
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header></header>
-      <main className="flex-1 overflow-x-hidden">something here</main>
-      <footer></footer>
-    </div>
+    <SiteWrapper>
+      <div className="flex">
+        <IconLinks />
+        <Main />
+        <Navigation />
+      </div>
+      <Footer />
+    </SiteWrapper>
   );
 }
 
