@@ -1,6 +1,7 @@
 import About from "./components/About";
 import Experience from "./components/Experience";
 import FirstView from "./components/FirstView";
+import Projects from "./components/Projects/index";
 
 const Component: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Component: React.FC = () => {
           <FirstView />
           <About />
           <Experience />
+          <Projects />
         </div>
       </div>
     </main>
