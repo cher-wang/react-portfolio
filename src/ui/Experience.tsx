@@ -1,4 +1,4 @@
-import { ReactComponent as ExperienceText } from "../images/experience_text.svg";
+import { ReactComponent as ExperienceText } from "../assets/experience_text.svg";
 
 const Component: React.FC = () => {
   const experienceItems = [

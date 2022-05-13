@@ -1,5 +1,5 @@
-import { ReactComponent as ProjectsText } from "../../images/projects_text.svg";
-import defaultImg from "../../images/default_img.svg";
+import { ReactComponent as ProjectsText } from "../../assets/projects_text.svg";
+import defaultImg from "../../assets/default_img.svg";
 import ProjectGrid from "./components/ProjectGrid";
 
 export type Project = {

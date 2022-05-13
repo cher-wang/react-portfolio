@@ -1,5 +1,5 @@
-import aboutImg from "../images/about_img.png";
-import { ReactComponent as AboutText } from "../images/about_text.svg";
+import aboutImg from "../assets/about_img.png";
+import { ReactComponent as AboutText } from "../assets/about_text.svg";
 
 const Component: React.FC = () => {
   return (

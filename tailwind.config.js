@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         "spring-green": { 100: "#D7E3C4", 200: "#a7bd80", 300: "#9CBD66" },
         "misty-blue": { 100: "#D0E0E9", 200: "#ADCACE" },
-        aquamarine: "#7ECED9",
+        aquamarine: { 100: "#B9E1E7", 200: "#7ECED9" },
       },
     },
   },

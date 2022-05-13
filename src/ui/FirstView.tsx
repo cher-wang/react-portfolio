@@ -1,7 +1,7 @@
-import splashImg from "../images/splash_img.png";
-import { ReactComponent as SplashTextHi } from "../images/splash_text_hi.svg";
-import { ReactComponent as SplashTextCheryl } from "../images/splash_text_cheryl.svg";
-import { ReactComponent as SplashTextDesc } from "../images/splash_text_desc.svg";
+import splashImg from "../assets/splash_img.png";
+import { ReactComponent as SplashTextHi } from "../assets/splash_text_hi.svg";
+import { ReactComponent as SplashTextCheryl } from "../assets/splash_text_cheryl.svg";
+import { ReactComponent as SplashTextDesc } from "../assets/splash_text_desc.svg";
 
 const Component: React.FC = () => {
   return (
