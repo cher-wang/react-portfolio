@@ -12,6 +12,7 @@ type MenuItemProps = {
   color: MenuItemColors;
   showFrom: number;
   showTo: number;
+  itemRef?: React.RefObject<HTMLDivElement>;
 };
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -19,6 +20,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   color,
   showFrom,
   showTo,
+  itemRef,
 }) => {
   const [showTab, setShowTab] = useState(false);
 
@@ -55,16 +57,35 @@ const MenuItem: React.FC<MenuItemProps> = ({
       />
       <div
         className={classnames(
-          "h-8 pl-4 w-full flex items-center text-white tracking-widest font-bold text-xs",
+          "h-8 pl-4 w-full flex items-center cursor-pointer",
           menuColor
         )}
+        onClick={() => itemRef?.current?.scrollIntoView({ behavior: "smooth" })}
       >
-        {name}
+        <div
+          className={classnames(
+            "text-white tracking-widest font-bold text-xs",
+            showTab ? "opacity-100" : "opacity-80"
+          )}
+        >
+          {name}
+        </div>
       </div>
     </div>
   );
 };
-const Component: React.FC = () => {
+
+type Props = {
+  aboutRef: React.RefObject<HTMLDivElement>;
+  experienceRef: React.RefObject<HTMLDivElement>;
+  projectsRef: React.RefObject<HTMLDivElement>;
+};
+
+const Component: React.FC<Props> = ({
+  aboutRef,
+  experienceRef,
+  projectsRef,
+}) => {
   const aboutTop = 600;
   const experienceTop = 900;
   const projectsTop = 1800;
@@ -72,20 +93,27 @@ const Component: React.FC = () => {
     {
       name: "about me",
       color: MenuItemColors.MistyBlue,
-      showFrom: aboutTop,
-      showTo: experienceTop,
+      showFrom: aboutRef.current?.getBoundingClientRect().top || aboutTop,
+      showTo:
+        experienceRef.current?.getBoundingClientRect().top || experienceTop,
+      itemRef: aboutRef,
     },
     {
       name: "experience",
       color: MenuItemColors.SpringGreen,
-      showFrom: experienceTop,
-      showTo: projectsTop,
+      showFrom:
+        experienceRef.current?.getBoundingClientRect().top || experienceTop,
+      showTo: projectsRef.current?.getBoundingClientRect().top || projectsTop,
+      itemRef: experienceRef,
     },
     {
       name: "projects",
       color: MenuItemColors.Aquamarine,
-      showFrom: projectsTop,
-      showTo: projectsTop + 900,
+      showFrom: projectsRef.current?.getBoundingClientRect().top || projectsTop,
+      showTo:
+        projectsRef.current?.getBoundingClientRect().bottom ||
+        projectsTop + 1000,
+      itemRef: projectsRef,
     },
   ];
   return (
