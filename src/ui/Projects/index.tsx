@@ -1,6 +1,7 @@
 import { ReactComponent as ProjectsText } from "../../assets/projects_text.svg";
 import defaultImg from "../../assets/default_img.svg";
 import ProjectGrid from "./components/ProjectGrid";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 
 export type Project = {
   title: string;
@@ -26,11 +27,12 @@ const Component: React.FC = () => {
     project.title += index;
     return project;
   });
+  const numCols = useBreakpointValue({ base: 2, md: 5 });
   return (
-    <div className="px-16">
-      <ProjectsText />
+    <div className="px-5 md:px-16">
+      <ProjectsText className="w-full md:w-auto" />
       {/* <div>filters</div> */}
-      <ProjectGrid projects={projects} />
+      <ProjectGrid projects={projects} numCols={numCols} />
     </div>
   );
 };

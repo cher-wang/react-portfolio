@@ -8,7 +8,7 @@ type Props = {
 const Component: React.FC<Props> = ({ project }) => {
   return (
     <div className="flex flex-col gap-y-3 py-5">
-      <div className="text-aquamarine font-bold text-2xl tracking-wider">
+      <div className="text-aquamarine-200 font-bold text-2xl tracking-wider">
         {project.title}
       </div>
       <div className="flex gap-x-5">
@@ -36,7 +36,7 @@ const Component: React.FC<Props> = ({ project }) => {
       </div>
       <a
         href={project.link}
-        className="flex gap-x-2 items-baseline text-aquamarine text-sm font-bold"
+        className="flex gap-x-2 items-baseline text-aquamarine-200 text-sm font-bold"
       >
         <div>check it out</div>
         <FontAwesomeIcon icon={faUpRightFromSquare} className="text-xs" />

@@ -1,4 +1,5 @@
 import { ReactComponent as ExperienceText } from "../assets/experience_text.svg";
+import { ReactComponent as ExperienceTextMobile } from "../assets/experience_text_mobile.svg";
 
 const Component: React.FC = () => {
   const experienceItems = [
@@ -37,12 +38,18 @@ const Component: React.FC = () => {
     },
   ];
   return (
-    <div className="px-16">
-      <ExperienceText className="mb-8" />
-      <div className="flex flex-col gap-y-4 text-sm tracking-wider leading-relaxed">
+    <div className="flex flex-col px-6 md:block md:px-16">
+      <ExperienceText className="hidden mb-8 md:block" />
+      <div className="w-full mb-5 md:hidden">
+        <ExperienceTextMobile />
+      </div>
+      <div className="flex flex-col w-60 gap-y-4 text-sm tracking-wider leading-relaxed ml-2 md:ml-0 md:w-full">
         {experienceItems.map((item) => (
-          <div key={item.period} className="flex items-baseline">
-            <div className="w-1/2 text-right basis-1/2 pr-16 font-bold text-spring-green-300 flex-none">
+          <div
+            key={item.period}
+            className="flex flex-col md:flex-row md:items-baseline"
+          >
+            <div className="md:w-1/2 md:text-right md:basis-1/2 md:pr-16 font-bold text-spring-green-300 flex-none">
               {item.period}
             </div>
             <div className="flex flex-col text-zinc-600">

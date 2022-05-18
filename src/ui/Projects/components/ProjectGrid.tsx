@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ProjectPreview from "./ProjectPreview";
 import { Project } from "../index";
 type Props = {
@@ -20,6 +20,7 @@ const Component: React.FC<Props> = ({ projects, numCols = 5 }) => {
 
   const [activeRowIndex, setActiveRowIndex] = useState(-1);
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
+  const currentRowPreviewRef = useRef<HTMLDivElement>(null);
   return (
     <div className="flex flex-col gap-y-3">
       {gridRows.map((row, rowIndex) => (
@@ -51,9 +52,18 @@ const Component: React.FC<Props> = ({ projects, numCols = 5 }) => {
             ))}
           </div>
           {activeRowIndex === rowIndex && activeItemIndex >= 0 && (
-            <ProjectPreview
-              project={gridRows[activeRowIndex][activeItemIndex]}
-            />
+            <div
+              ref={currentRowPreviewRef}
+              onLoad={() =>
+                currentRowPreviewRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
+              <ProjectPreview
+                project={gridRows[activeRowIndex][activeItemIndex]}
+              />
+            </div>
           )}
         </div>
       ))}

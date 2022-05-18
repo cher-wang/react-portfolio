@@ -47,10 +47,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
   };
 
   return (
-    <div className="flex w-[12%]">
+    <div className="flex w-[15%]">
       <div
         className={classnames(
-          "h-8 w-1/4 flex-none",
+          "h-8 w-1/5 flex-none",
           showTab ? "opacity-40" : "opacity-0",
           menuColor
         )}
@@ -64,7 +64,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
       >
         <div
           className={classnames(
-            "text-white tracking-widest font-bold text-xs",
+            "text-white tracking-widest font-semibold text-sm",
             showTab ? "opacity-100" : "opacity-80"
           )}
         >
